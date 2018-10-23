@@ -1,4 +1,4 @@
-package WebDriver;
+package WebDriverUtils;
 
 import java.io.IOException;
 import java.util.NavigableMap;

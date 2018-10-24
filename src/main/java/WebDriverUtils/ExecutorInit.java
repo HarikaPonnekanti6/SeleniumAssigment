@@ -6,6 +6,7 @@ import java.util.NavigableMap;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -37,6 +38,8 @@ public class ExecutorInit {
 
 	@BeforeClass
 	public void beforeClass() {
+ 
+		
 		webDriver = new FirefoxDriver();
 		webDriver.get("https://www.amazon.ca/");
 		webDriver.manage().window().maximize();

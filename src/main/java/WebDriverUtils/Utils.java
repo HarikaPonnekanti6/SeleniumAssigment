@@ -2,7 +2,6 @@ package WebDriverUtils;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -33,7 +32,7 @@ public class Utils extends ExecutorInit{
     public void waitForElementToBeVisible(By locator) {
         try {
             wait = new WebDriverWait(webDriver, timeout);
-            wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            //wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         } catch (Exception e) {
         	e.printStackTrace();
         }
@@ -42,7 +41,7 @@ public class Utils extends ExecutorInit{
     public void waitForElementToBeClickable(By locator) {
         try {
             wait = new WebDriverWait(webDriver, timeout);
-            wait.until(ExpectedConditions.elementToBeClickable(locator));
+            //wait.until(ExpectedConditions.elementToBeClickable(locator));
         } catch (Exception e) {
         	e.printStackTrace();
         }

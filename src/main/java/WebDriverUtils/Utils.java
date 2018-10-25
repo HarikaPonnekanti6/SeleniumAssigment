@@ -5,12 +5,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Utils extends ExecutorInit{
+public class Utils{
 
 	public WebDriverWait wait;
 	public int timeout = 60;
+	private WebDriver driver;
 	
-	
+	public Utils(WebDriver driver) {
+		this.webDriver = driver;
+		PageFactory.initElements(driver, this);
+	}
     public void waitForElement(WebElement element) {
         try {
             wait = new WebDriverWait(webDriver, timeout);

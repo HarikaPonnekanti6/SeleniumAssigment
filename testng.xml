@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Suite" parallel="true">
-  <test name="AutomationTest">
-    <classes>
-      <class name="tests.NewTest"/>
-    </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+<suite name="AmazonSuite" thread-count="2" parallel="tests">
+<!-- 	<test name="TestInChrome"> -->
+<!-- 		<parameter name="browserName" value="Chrome" /> -->
+<!-- 		<classes> -->
+<!-- 			<class name="SeleniumTest.TestAmazonKindle"> -->
+<!-- 			</class> -->
+<!-- 		</classes> -->
+<!-- 	</test> -->
+	<test name="TestInFirefox">
+		<parameter name="browserName" value="firefox" />
+		<classes>
+			<class name="SeleniumTest.AmazonKindleTest">
+			</class>
+		</classes>
+	</test>
+<!-- 	<test name="TestInSafari"> -->
+<!-- 		<parameter name="browserName" value="safari" /> -->
+<!-- 		<classes> -->
+<!-- 			<class name="SeleniumTest.TestAmazonKindle"> -->
+<!-- 			</class> -->
+<!-- 		</classes> -->
+<!-- 	</test> -->
+</suite> 

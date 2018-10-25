@@ -10,29 +10,11 @@ public class Utils extends ExecutorInit{
 	public WebDriverWait wait;
 	public int timeout = 60;
 	
-	public WebElement getWebElement(By locator) {
-		try {
-			return webDriver.findElement(locator);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	public String getTextOfWebElement(By locator) {
-		waitForElementToBeVisible(locator);
-		try {
-			return webDriver.findElement(locator).getText();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
 	
-    public void waitForElementToBeVisible(By locator) {
+    public void waitForElement(WebElement element) {
         try {
             wait = new WebDriverWait(webDriver, timeout);
-            //wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            wait.until(ExpectedConditions.visibilityOf(element));
         } catch (Exception e) {
         	e.printStackTrace();
         }
@@ -41,7 +23,7 @@ public class Utils extends ExecutorInit{
     public void waitForElementToBeClickable(By locator) {
         try {
             wait = new WebDriverWait(webDriver, timeout);
-            //wait.until(ExpectedConditions.elementToBeClickable(locator));
+            wait.until(ExpectedConditions.elementToBeClickable(locator));
         } catch (Exception e) {
         	e.printStackTrace();
         }

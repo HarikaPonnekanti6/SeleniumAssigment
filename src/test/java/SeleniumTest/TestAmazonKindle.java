@@ -1,18 +1,13 @@
 package SeleniumTest;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-import Pages.HomePage;
 import WebDriverUtils.ExecutorInit;
-import WebDriverUtils.Utils;
 
 public class TestAmazonKindle extends ExecutorInit{
 	@Test(enabled = true)

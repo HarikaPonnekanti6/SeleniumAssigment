@@ -1,51 +1,51 @@
 package WebDriverUtils;
 
-import java.io.IOException;
-import java.util.NavigableMap;
-
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.openqa.selenium.safari.SafariDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 
 public class ExecutorInit {
-	public WebDriver webDriver = null;
-	/*
-	public void initalizer() throws IOException{
-		if(webDriver == null)
-		{
-			webDriver = new FirefoxDriver();
-			webDriver.get("https://www.amazon.ca/");
-			webDriver.manage().window().maximize();
-
-			if (System.getProperty("browser").equals("Firefox")) 
-			{
+	public WebDriver webDriver;
+	@BeforeTest
+	@Parameters("browserName")
+	public void initializer(String browserName) {
+		//Check if parameter passed from TestNG is 'firefox'
+		try {
+			if(browserName.equalsIgnoreCase("firefox")){
+				//create firefox instance
 				webDriver = new FirefoxDriver();
+				webDriver.get("https://www.amazon.ca/");
+				webDriver.manage().window().maximize();
 			}
-			else if (System.getProperty("browser").equals("iexplore")) 
-			{
-				System.setProperty("webdriver.ie.driver", "C:\\selenium\\IEDriverServer.exe");
-				webDriver = new InternetExplorerDriver();
+			//Check if parameter passed as 'chrome'
+			else if(browserName.equalsIgnoreCase("chrome")){
+				//set path to chromedriver.exe
+				System.setProperty("webdriver.chrome.driver",".\\chromedriver.exe");
+				//create chrome instance
+				webDriver = new ChromeDriver();
+				webDriver.get("https://www.amazon.ca/");
+				webDriver.manage().window().maximize();
 			}
-			else if (System.getProperty("brower").equals("Chrome"))
-			{
-
+			//Check if parameter passed as 'Edge'
+			else if(browserName.equalsIgnoreCase("safari")){
+				//set path to Edge.exe
+				System.setProperty("webdriver.edge.driver",".\\safari.exe");
+				//create Edge instance
+				webDriver = new SafariDriver();
+				webDriver.get("https://www.amazon.ca/");
+				webDriver.manage().window().maximize();
 			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-	}*/
-
-	@BeforeClass
-	public void beforeClass() {
- 
-		
-		webDriver = new FirefoxDriver();
-		webDriver.get("https://www.amazon.ca/");
-		webDriver.manage().window().maximize();
 	}
 
-	@AfterClass
+	@AfterTest
 	public void afterClass() {
 		webDriver.quit();
 	}

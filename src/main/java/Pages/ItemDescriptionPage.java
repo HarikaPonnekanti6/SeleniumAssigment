@@ -7,20 +7,21 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ItemDescriptionPage {
 	  private WebDriver driver;
-
+		//PageFactory Design Pattern Used for getting the webElement
 	    @FindBy(id = "quantity")
 		public WebElement quantityID;
 
 	    @FindBy(css = "input#add-to-cart-button")
 		public WebElement addToCart;
-	     //a-autoid-21-announce
-	    @FindBy(xpath = "//*[@id='a-autoid-21']/span[@class='a-button-inner']")
+	    
+	    @FindBy(xpath = "//*[@id='a-autoid-21']/span/input[@class='a-button-input']")
 	    public WebElement continueButtonID;
 	    
-	    public static String continueLocator = "//*[@id='a-autoid-21']/span[@class='a-button-inner']";
+	    public static String continueLocator = "//*[@id='a-autoid-21']/span/input[@class='a-button-input']";
 	    
 	    public ItemDescriptionPage(WebDriver driver) {
 	        this.driver = driver;
+			//Initializing PageFactory elements
 			PageFactory.initElements(driver, this);
 	    }
 }

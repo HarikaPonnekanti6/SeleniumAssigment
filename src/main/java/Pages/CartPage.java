@@ -7,13 +7,12 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CartPage {
 	private WebDriver driver;
-	
-	//a[@class='hucSprite s_checkout hlb-checkout-button']
+	//PageFactory Design Pattern Used for getting the webElement
 	 @FindBy(xpath = "//a[@class='hucSprite s_checkout hlb-checkout-button']")
-		public WebElement proceedToCheckout;
-	 
+		public WebElement proceedToCheckout; 
     public CartPage(WebDriver driver) {
         this.driver = driver;
+		//Initializing PageFactory elements
 		PageFactory.initElements(driver, this);
     }
 }

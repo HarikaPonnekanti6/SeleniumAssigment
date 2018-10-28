@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
 	private WebDriver webDriver;
-	
+	//PageFactory Design Pattern Used for getting the webElement
 	@FindBy(xpath = ".//*[@id='nav-link-shopall']/span[contains(text(),'Department')]")
 	public WebElement departmentPath;
 
@@ -16,8 +16,10 @@ public class HomePage {
 
 	@FindBy(xpath = ".//*[@class='nav-text' and contains(text(),'All-new Kindle Paperwhite')]")
 	public WebElement kindlePaperWhitePath;
+	
 	public HomePage(WebDriver driver) {
 		this.webDriver = driver;
+		//Initializing PageFactory elements
 		PageFactory.initElements(driver, this);
 	}
 	

@@ -7,13 +7,13 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 	private WebDriver driver;
-	
-	//div[@class='a-row a-spacing-base']/label
+	//PageFactory Design Pattern Used for getting the webElement
 	 @FindBy(xpath = "//div[@class='a-row a-spacing-base']/label")
 		public WebElement emailIdLabel;
 	 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
+		//Initializing PageFactory elements
 		PageFactory.initElements(driver, this);
     }
 }
